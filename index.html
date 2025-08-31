@@ -464,4 +464,18 @@ function addDarkModeButton(device) {
             };
           }
         </script></body>
+
 </html>
+
+server {
+  listen 3000;
+  server_name _;
+
+  root /usr/share/nginx/html;   # your built SPA lives here
+  index index.html;
+
+  # Try the exact file, then directory, then fall back to index.html
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+}
